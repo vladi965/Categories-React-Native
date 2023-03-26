@@ -1,20 +1,26 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import * as React from 'react';
+import { NavigationContainer } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import HomeScreen from './src/Screens/HomeScreen';
+import ButtonScreen from './src/Screens/ButtonScreen';
+import SpinnerScreen from './src/Screens/SpinnerScreen';
+import SwitchScreen from './src/Screens/SwitchScreen';
+import CheckBoxScreen from './src/Screens/CheckBoxScreen';
+
+const Stack = createNativeStackNavigator();
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <NavigationContainer>
+      <Stack.Navigator>
+        {/* <Stack.Screen name="Home" component={HomeScreen} /> */}
+        {/* <Stack.Screen name="Button" component={ButtonScreen} /> */}
+        {/* <Stack.Screen name="Spinner" component={SpinnerScreen} /> */}
+        {/* <Stack.Screen name="Switch" component={SwitchScreen} /> */}
+        <Stack.Screen name="CheckBox" component={CheckBoxScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
